@@ -1,17 +1,19 @@
 
 
-
-
 export async function fetchBooks(query) {
-  const response = await fetch(
-    `https://openlibrary.org/search.json?q=${encodeURIComponent(query)}`
-  );
+  var url = "https://openlibrary.org/search.json?q=" + encodeURIComponent(query) + "&limit=20&fields=title,author_name,first_publish_year,cover_i,key";
+
+  var response = await fetch(url);
 
   if (!response.ok) {
     throw new Error("Network error");
   }
 
-  const data = await response.json();
+  var data = await response.json();
+
+  if (!data.docs || data.docs.length === 0) {
+    throw new Error("NOTHING_FOUND");
+  }
 
   return data.docs;
 }
