@@ -25,7 +25,7 @@ var state = {
   favorites: []
 };
 
-// ── BONUS: THEME TOGGLE ───────────────────────────────────
+// ──  THEME TOGGLE ───────────────────────────────────
 var savedTheme = localStorage.getItem("theme") || "dark";
 document.documentElement.setAttribute("data-theme", savedTheme);
 updateThemeButton(savedTheme);
@@ -48,7 +48,7 @@ function updateThemeButton(theme) {
   }
 }
 
-// ── BONUS: DEBOUNCE ───────────────────────────────────────
+// ──  DEBOUNCE ───────────────────────────────────────
 function debounce(fn, delay) {
   var timer;
   return function() {
@@ -60,7 +60,7 @@ function debounce(fn, delay) {
   };
 }
 
-// ── BONUS: AUTHOR FILTER ──────────────────────────────────
+// ── AUTHOR FILTER ──────────────────────────────────
 function applyAuthorFilter() {
   var filterVal = authorFilter.value.trim().toLowerCase();
 
@@ -201,8 +201,8 @@ function renderFavorites() {
     img.alt = "Cover of " + book.title;
     img.src = book.cover_i
       ? "https://covers.openlibrary.org/b/id/" + book.cover_i + "-S.jpg"
-      : "/src/assets/No_Image_Available.jpg";
-    img.onerror = function() { img.onerror = null; img.src = "/src/assets/No_Image_Available.jpg"; };
+      : "/No_Image_Available.jpg";
+    img.onerror = function() { img.onerror = null; img.src = "/No_Image_Available.jpg"; };
 
     var info = document.createElement("div");
     info.classList.add("fav-item-info");

@@ -1,4 +1,4 @@
-const PLACEHOLDER = "/src/assets/No_Image_Available.jpg";
+const PLACEHOLDER = "/No_Image_Available.jpg";
 
 export function createBookCard(book, onClickAction, isFavorite = false) {
   const card = document.createElement("div");
