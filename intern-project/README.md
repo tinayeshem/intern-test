@@ -4,6 +4,8 @@
 
 [Innowise Internship — Simple Books Catalogue]
 
+live deployment link - wondrous-fox-e9f6d0.netlify.app
+
 ## How to run the app
 
 **Prerequisites:** Node.js 18+
