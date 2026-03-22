@@ -1,31 +1,31 @@
 
-export function create(book,onClickAction,isFavourite=false){
-    const card = document.createElement("div")
-    document.createElement("div")
-    card.classList.add("book-card")
 
-    const img = document.createElement("img")      
-    img.src = book.cover_i
-        ? `https://covers.openlibrary.org/b/id/${book.cover_i}.jpg`
-        : "assets/no-cover.png";
+export function createBookCard(book, onClickAction, isFavorite = false) {
+  const card = document.createElement("div");
+  card.classList.add("book-card");
 
-    const title = document.createElement("h3");
-    title.textContent = book.title;
+  const img = document.createElement("img");
+  img.src = book.cover_i
+    ? `https://covers.openlibrary.org/b/id/${book.cover_i}.jpg`
+    : "assets/no-cover.png";
 
-    const author = document.createElement("p");
-    author.textContent = book.author_name
-        ? book.author_name.join(", ")
-        : "Unknown";
+  const title = document.createElement("h3");
+  title.textContent = book.title;
 
-    const year = document.createElement("p");
-    year.textContent = book.first_publish_year || "N/A";
+  const author = document.createElement("p");
+  author.textContent = book.author_name
+    ? book.author_name.join(", ")
+    : "Unknown";
 
-    const btn = document.createElement("button");
-    btn.textContent = isFavorite ? "Remove" : "Add to Favorites";
+  const year = document.createElement("p");
+  year.textContent = book.first_publish_year || "N/A";
 
-    btn.addEventListener("click", () => onClickAction(book));
+  const btn = document.createElement("button");
+  btn.textContent = isFavorite ? "Remove" : "Add to Favorites";
 
-    card.append(img, title, author, year, btn);
+  btn.addEventListener("click", () => onClickAction(book));
 
-    return card;
+  card.append(img, title, author, year, btn);
+
+  return card;
 }
